@@ -1,0 +1,47 @@
+// =============================================================================
+// RESPONSIVE (CSS)
+// =============================================================================
+
+@include breakpoints(lg){
+	.container {
+	    position: relative;
+	    max-width: 1200px;
+	}
+	.default--style,
+	.home2--style{
+		.navPages-horizontal ul.navPages-list > li.hasMegamenu .navPage-subMenu{width: 890px;}
+	}
+	
+}
+@media (min-width: 1649px){
+	
+	.home2--style{
+		.section-slideshow{ overflow: hidden; position: relative;z-index: 5;
+			
+		}
+	}
+	.home3--style{
+		.container{position: static;}
+		.section-slideshow{overflow: hidden; position: relative;z-index: 5;
+			.container{position: relative;z-index: -1;}
+			.sb-loadeding{margin: 0 15px;}
+		}
+	}
+
+	.home4--style{
+		
+		.section-slideshow{ overflow: hidden; position: relative;z-index: 5;
+			.sb-loadeding{margin: 0 15px;}
+		}
+	}
+}
+
+@media (min-width: 1200px) and (max-width: 1649px){
+	
+}
+
+
+
+
+
+

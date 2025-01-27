@@ -1,0 +1,47 @@
+
+<section class="productCarousel products-list {{#if theme_settings.general_rtl '==' 'rtl' }}dir-rtl{{/if}}"
+    
+    data-slick='{
+        "dots": false,
+        "infinite": true,
+        "mobileFirst": true,
+        "slidesToShow": 1,
+        "slidesToScroll": 1,
+        "responsive": [
+            {
+                "breakpoint": 1260,
+                "settings": {
+                    "slidesToScroll": 1,
+                    "slidesToShow": {{ columns }}
+                }
+            },
+            {
+                "breakpoint": 800,
+                "settings": {
+                    "slidesToScroll": 1,
+                    "slidesToShow": 1
+                }
+            },
+            {
+                "breakpoint": 550,
+                "settings": {
+                    "slidesToScroll": 1,
+                    "slidesToShow": 1
+                }
+            }
+        ]
+    }'
+    
+>
+   
+   
+	{{#forEach (limit products theme_settings.homepage_extraslider_count)}}
+		
+		<div class="productCarousel-slide product-layout product-list">
+			{{> components/sbthemes/products/card_listing theme_settings=../theme_settings customer=../customer}}
+		</div>
+		
+    {{/forEach}}
+    
+   
+</section>

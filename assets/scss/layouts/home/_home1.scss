@@ -1,0 +1,274 @@
+// =============================================================================
+// Home 1
+// =============================================================================
+//====== SB Promotion   =======
+div.sb-promotion{margin: 9px 0; height: 25px; overflow: hidden;}
+
+
+//====== Latest Blog  =======
+div.sb-latestblog{ clear: both;
+    @extend div.sb-banner--feature_category ;
+    @include listingtabArrow();
+    .slick-list{margin: 0 -10px;}
+    .blog-post {margin-bottom: 0;}
+    .slick-slider{
+        .slick-prev,
+        .slick-next{transform: translateY(-45px);}
+    }
+}
+
+//====== Static Banner  =======
+.banners{padding: 0; background: none; color: $gray; text-align: left;}
+.sb-banner{ border:none;
+    .block-content{ padding: 0; }
+    .flex-row{margin:0 -15px;
+        .banners{margin: 0 15px;}
+    }
+}
+div.sb-banner--feature_category{  border:none;
+    .block-title{
+        position: relative;
+        background: transparent;
+        padding-#{$left}: 0;
+        font-size: 18px; letter-spacing: 0.7px;
+        margin-bottom:30px;
+        
+        &:after{ content: ''; height: 2px; width: 100px; background-color: $background; position: absolute; bottom: -1px; #{$left}: 0;}
+    }
+    .banners{ box-shadow: 0px 2px 3px 0px rgba(100, 100, 100, 0.3);  text-align: center; 
+        .banner-figcaption {margin:0;}
+        .banner-figcaption__title{margin: 0;color:#222;  font-size: 16px; text-transform: uppercase; line-height: 52px; @include transition(all .3s ease 0s); display: block; }
+        &:hover{
+            .banner-figcaption__body{ background: #222; color: #fff;}
+            .banner-figcaption__title{color: #fff;}
+        }
+    }
+}
+div.sb-banner--slideshow{margin-bottom: 0;}
+div.sb-brand--static_brand{ 
+    .sb-brand--carousel{ padding: 10px 15px; margin:0;   border: 1px solid #ebebeb; border-radius: 5px;
+        .slick-prev{#{$left}: 1px; z-index: 5;}
+        .slick-next{#{$right}: 1px; z-index: 5;}
+        .slick-prev,.slick-next{margin: 0;
+            &:before{opacity:0.5;transform: scale(0.7);}
+        }
+    }
+}
+div.sb-banner--sidebarBanner{
+    .block-content{padding: 0 !important;}
+}
+
+//====== SB Etraslider  =======
+.extraslider--banner_no{
+    .block-content{display: block; margin: 0;}
+}
+.extraslider--new{   float: $left;width: calc(50% - 1.14286rem);    }
+.extraslider--featured{  float: $right;width: calc(50% - 1.14286rem);}
+.extraslider--bestsell{float: $right;width: calc(25% - 1.14286rem);}
+div.extraslider--home1{
+    @include listingtabArrow();
+    border: 1px solid #e1e1e1;
+    .productCarousel{margin: 0; max-width: 100%; }
+    .productCarousel-slide{padding: 15px 15px 0 15px; width:100%;}
+    .products-list .product-list{
+         .product-item-container {width: 100%; margin-bottom: 15px; min-height: 95px;
+            &:last-child{margin-bottom:0;}
+            .left-block{width: 85px; border: none; margin-#{$right}: 15px; padding: 0;}
+            .right-block{margin-#{$left}: 0; padding: 0; overflow: hidden;
+                .card-title{font-size: 14px;
+                    @include text-overflow();
+                }
+            }
+         }
+    }
+}
+
+
+.alignBanner--right{ 
+    .sb-listing-tabs{
+        .ltabs-heading{ 
+            @include if-ltr {direction: rtl;} 
+            @include if-rtl {direction: ltr;}
+            .block-title{
+                border-radius: corner-values(7px 0 0 0);
+                margin: side-values(0 -9px 0 0);
+                &:before{
+                    #{$left}: auto; #{$right}:1px;
+                    transform: rotate(#{if-ltr('-90deg', '90deg')});}
+            }
+            ul.tabs {
+                
+            }
+        }
+        
+        .ltabs-container{
+            .productCarousel .productCarousel-slide .product-item-container:before{#{$right}:auto; #{$left}:0;}
+        }
+    }
+}
+
+//====== SB Deals  =======
+div.sb-deals{
+    float: $left;
+    width: calc(75% - 1.14286rem);
+    position: relative;z-index: 1;
+    border: 1px solid #e1e1e1;
+    min-height: 470px;
+    @include listingtabArrow();
+    .block-title{ position: absolute;z-index: 9;  top: -6px; #{$left}: 13px; background:none; padding:0; border:none;
+        span{background: $background; color: #fff; font-size: 18px; text-transform: uppercase; padding: 11px; font-weight: bold; border-radius:0 0 8px 8px; display: block;
+            &:before {
+                content: "";
+                border-left: 5px solid transparent;
+                border-right: 0px solid transparent;
+                border-bottom: 5px solid darken($background,10%);
+                position: absolute;
+                left: -5px;
+                top: -0;
+            }
+            &:after{
+                content: "";
+                border-left: 0px solid transparent;
+                border-right: 5px solid transparent;
+                border-bottom: 5px solid darken($background,10%);
+                position: absolute;
+                right: -5px;
+                top: 0;
+            }
+        }
+    }
+    .sb-deals-items{
+        border-top: 1px solid #e1e1e1;
+        border-bottom: none;
+        padding:  5px;
+        margin-bottom: 0;
+        position: static;
+        .sb-deals-image-thumb{
+            margin: 10px;
+            border: 1px solid #E0E0E0;
+            border-radius: 5px;
+            padding: 5px;
+            position: relative;
+            cursor: pointer;
+            .sale-flag-discount{top: 15px; #{$right}: 15px;}
+        }
+        .slick-current{
+            .sb-deals-image-thumb{border-color: $background;}
+        }
+        .sb-deals-title{
+            font-size: 13px;
+            color: #7d7d7d;
+            text-transform: capitalize;
+            text-align: center;
+            white-space: nowrap;
+            margin: 0 10px 10px;
+            a{@include linkGray();}
+        }
+        .slick-prev,
+        .slick-next{
+            top: 30%;
+            width: 36px;
+            height: 50px;
+            background: #e0e0e0;
+            border-radius: 3px;
+            &:before{line-height:50px;}
+        }
+
+       
+        .slick-prev {#{$left}: 1.5rem; #{$right}:: auto;}
+        .slick-next {#{$right}:: 1rem; #{$left}:: auto;}
+        
+    }
+    .sb-deals-detail{padding: 8px 20px;margin-bottom: 0;
+        .flag-badges{top: 50px;#{$left}: 23%;}
+        .countdown--box{ margin: 0 0 5px;
+            .time-item{ 
+                position: relative;
+                display: inline-block;
+                width: auto;
+                line-height: normal;
+                border: none;
+                background: transparent;
+                margin-#{$right}: 15px;
+                .num-time{
+                    display: block;
+                    width: 70px;
+                    height: 38px;
+                    background-color: #ebebeb;
+                    line-height: 38px;
+                    text-align: center;
+                    font-size: 24px;
+                    color: #222;
+                    margin-bottom: 5px;
+                    border-radius: 3px;
+                    border: none;
+
+                }
+                .name-time{
+                    text-align: center;
+                    font-size: 12px;
+                    display: block;
+                    color: #7d7d7d;
+                    text-transform: uppercase;
+                }
+                @media (max-width: 1199px){
+                    margin-#{$right}: 5px;
+                    .num-time{
+                        width: 50px;
+                        font-size: 20px;
+                    }
+                }
+                
+            }
+        }
+        
+
+        .left-block{width: 48%; position: relative;z-index: 1; margin-right: 2%; float: $left;}
+        .right-block{width: 50%;float: $right;
+            .card-title{font-size: 17px;margin: 20px 0 10px;
+                 > a{@include linkGray();}
+            }
+            .description{
+                border-top: 1px solid #e1e1e1;
+                margin: 10px 0;
+                padding-top: 20px;
+            }
+            .price-section{
+                margin: 0 0 20px 0;
+                font-size: 16px;
+                font-weight: 700;
+                .price--withoutTax{ font-size: 22px; color: $linkColor; }
+            }
+        }
+
+        .slick-prev,.slick-next{display: none !important;}
+    }
+}
+
+
+.block-slideshow__left{
+    .bc-carousel__bullet{
+      width: 8px;
+      height: 8px;
+      background-color: #7d7d7d;
+      border: none;
+      margin: 0 2px;
+      opacity: 1;
+      display: block;
+      border-radius: 50%;
+      transition: all .2s ease 0s;
+    }
+    div button.bc-carousel__bullet-active{
+        background-color: $background;
+        width: 25px;
+        border-radius: 4px;
+    }
+    .css-p3lncx{ #{$left}: 45px; bottom: 30px; }
+    .bc-carousel__arrow--left,
+    .bc-carousel__arrow--right{ 
+        display: none;
+    }
+}
+
+
+

@@ -1,0 +1,10 @@
+{
+  "customLayouts": {
+    "brand": {},
+    "category": {},
+    "page": {},
+    "product": {}
+  },
+  "normalStoreUrl": "https://jeffs-fireworks.mybigcommerce.com/?ctk=ff3458d2-e129-44e6-bd81-5b8e0fdd5ce1",
+  "port": "3000"
+}

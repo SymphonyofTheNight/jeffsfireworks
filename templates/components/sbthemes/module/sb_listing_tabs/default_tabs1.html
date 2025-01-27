@@ -1,0 +1,133 @@
+{{!--
+Arguments:
+    - category_id (number)
+    - style (string): CSS class styling suffix
+    - banner
+    - url
+    - alignBanner
+
+
+Global variables:
+    - categories (array)
+
+--}}
+
+
+{{#if category_id '!==' ' '}}
+{{#withHash
+    categories               = categories
+    category_id              = category_id
+    alignBanner               = alignBanner
+    banner                   = banner
+    placeholder              = placeholder
+    url                      = url
+    theme_settings           = theme_settings
+}}
+
+{{#each categories}}
+	{{#if name '===' 'Pro Line & More'}}
+		{{#if (merge ../../this
+			category_name = name
+			category_url = url)}}
+		{{/if}}
+	{{else}}
+		{{#each children}}
+			{{#if id '===' ../../../category_id}}
+				{{#if (merge ../../../../this
+					category_name = name
+					category_url = url)}}
+				{{/if}}
+			{{/if}}
+		{{/each}}
+	{{/if}}
+{{/each}}
+
+{{#if category_url}}
+<div id="sb-listing-tabs28" class="sb-listing-tabs">
+{{#each categories}}
+{{#if name '===' 'Pro Line & More'}}
+
+         <div class="ltabs-heading d-flex mobile">
+            <h3 class="block-title"><a href="{{url}}" title="{{name}}">{{name}}</a></h3>
+    		<div class="ltabs-tabs-wrap align-self-end">
+    			<span class='ltabs-tab-selected'>New Fireworks In Stock For 2023</span>
+    			<span class="ltabs-tab-arrow">▼</span>
+    			<ul class="tabs ltabs-tabs" data-tab data-tab-sblisting role="tablist">
+    				{{#each (limit children 10)}}
+        				<li class="tab" role="presentation"><a class="tab-title" href="#tab-sblisting-bestselling-{{id}}" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-sblisting-bestselling-{{id}}">{{name}}</a></li>
+                    {{/each}}
+                    <li class="tab"><a class="tab-title" href="/pro-line-more/"><strong>Shop All</strong></a></li>
+    			</ul>
+    	    </div>
+    	</div>
+    	
+	<div class="ltabs-container d-flex">
+		<div class="ltabs-heading desktop">
+
+		<h3 class="block-title"><a href="{{url}}" title="{{name}}">{{name}}</a></h3>
+
+		<ul class="tabs ltabs-tabs" data-tab data-tab-sblisting role="tablist">
+
+
+        {{#each (limit children 10)}}
+    				<li class="tab" role="presentation"><a class="tab-title" href="#tab-sblisting-bestselling-{{id}}" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-sblisting-bestselling-{{id}}">{{name}}</a></li>
+
+        {{/each}}
+          <li class="tab"><a class="tab-title" href="/pro-line-more/"><strong>Shop All</strong></a></li>
+    </ul>
+
+	</div>
+   {{/if}}
+{{/each}}
+
+
+
+
+
+		{{#if alignBanner '==' 'no'}}
+		<div class="ltabs-items-container ltabs-items-container--noimage">
+		{{else}}
+		<div class="ltabs-items-container ltabs-items-container--image">
+		{{/if}}
+        {{#each categories}}
+        {{#if name '===' 'Pro Line & More'}}
+            {{#each children}}
+			<section role="tabpanel" aria-hidden="false" class="tab-content {{#if name '==' 'New Fireworks In Stock For 2023'}} is-active {{/if}}" id="tab-sblisting-bestselling-{{id}}"
+				data-items-sblisting="{{concat url '?sort=bestselling'}}"
+			>
+
+				{{> components/sbthemes/module/sb_listing_tabs/product-loading }}
+			</section>
+            {{/each}}
+        {{/if}}
+        {{/each}}
+		</div>
+
+		{{#if alignBanner '==' 'right'}}
+		<div class="ltabs-items-image">
+			<div class="banners" {{#if theme_settings.general_fadeimage}}data-fade-image data-size-image{{/if}} >
+				<div class="banner-figure">
+					{{#if banner '!=' ' '}}
+						<a href="{{url}}" title="{{category_name}}"><img  class="img-fluid" src="{{cdn banner}}" alt="{{category_name}}" /></a>
+					{{else}}
+						<a href="{{url}}" title="{{category_name}}"><img class="img-fluid" src="{{cdn placeholder}}" alt="{{category_name}}"  /></a>
+					{{/if}}
+				</div>
+			</div>
+
+		</div>
+		{{/if}}
+
+	</div>
+</div>
+{{else}}
+	<div class="alert alert-info" role="alert" style="margin:0px">
+		<i class="fa fa-info-circle"></i>
+	   {{{lang 'sb_themes.sb_listing_tabs.noCategory' }}}
+	</div>
+{{/if}}
+
+{{/withHash}}
+
+
+{{/if}}

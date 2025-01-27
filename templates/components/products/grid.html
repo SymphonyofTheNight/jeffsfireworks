@@ -1,0 +1,8 @@
+<div class="products-list row" >
+	
+    {{#each products}}
+    <div class="product-layout product-grid product-grid-4 col-lg-3 col-md-4 col-12">
+        {{>components/sbthemes/products/card_listing  show_rating=../settings.show_product_rating theme_settings=../theme_settings customer=../customer}}
+    </div>
+    {{/each}}
+</div>

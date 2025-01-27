@@ -1,0 +1,52 @@
+<nav class="navPages-horizontal navPages-container"  id="menu" >
+	<span class="mobileMenu-close fa fa-times" ></span>
+    <ul class="navPages-list">
+
+<li class="navPages-item{{#if load-webpage '==' 'yes'}} hasMegamenu{{/if}}{{#if position '==' 'right'}} float-right {{/if}} ">
+
+<a class="navPages-action has-subMenu " href="/brands/" >
+	Brands
+	<span class=" has-subMenu" data-collapsible="navPages-webpage-{{@index}}">
+		<i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-right" /></svg></i>
+	</span>
+	
+</a>
+<div class="navPage-subMenu brand-navPage" id="navPages-webpage-{{@index}}" aria-hidden="true" tabindex="-1">
+<div class="row">
+    <div class="col-lg-12">
+	        <h3 class="category-name">Brands</h3>
+	    </div>
+<div class="col-lg-12">
+	<ul class="navPage-subMenu-list grid-{{../content_column}}">
+		{{#each shop_by_brand}}
+			<li class="navPage-subMenu-item">
+		    	<a class="navPage-subMenu-action navPages-action" href="{{url}}">{{name}}</a>
+			</li>
+		{{/each}}
+	</ul>
+</div>
+</div>	
+</div>
+ </li>
+
+
+			{{#each pages}}
+				{{#or (if name '==' 'Wholesale Inquiry') (if title '==' 'Locations') (if (lowercase name) '==' 'ask about this product') }} 
+				{{else}}
+					{{> components/sbthemes/module/sb_megamenu/horizontal/item-page
+						status = (lang (concat (concat 'sb_themes.sb_megamenu.webpage.menu_cat_'@index)'.status'))
+						icon-image = (lang (concat (concat 'sb_themes.sb_megamenu.webpage.menu_cat_'@index)'.icon-image'))
+						icon-awesome = (lang (concat (concat 'sb_themes.sb_megamenu.webpage.menu_cat_'@index)'.icon-awesome'))
+						badge = (lang (concat (concat 'sb_themes.sb_megamenu.webpage.menu_cat_'@index)'.menu-badge'))
+						position = (lang (concat (concat 'sb_themes.sb_megamenu.webpage.menu_cat_'@index)'.position'))
+						load-webpage = (lang (concat (concat 'sb_themes.sb_megamenu.webpage.menu_cat_'@index)'.load-webpage'))
+					}}
+					{{/or}}
+			 {{/each}}
+    </ul>
+</nav>
+
+<a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
+	<span class="mobileMenu-toggleIcon">Toggle menu</span>
+</a>
+

@@ -1,0 +1,67 @@
+
+<div class="productsByCategoryTabs-products--carousel {{#if theme_settings.general_rtl '==' 'rtl' }}dir-rtl{{/if}}">
+	<section class="productCarousel products-list"
+	    
+		data-slick='{
+	        "dots": false,
+	        "infinite": false,
+	        "mobileFirst": true,
+	        "slidesToShow": 1,
+	        "slidesToScroll": 1,
+	        "responsive": [
+	            {
+	                "breakpoint": 1260,
+	                "settings": {
+	                    "slidesToScroll": 1,
+	                    "slidesToShow": {{theme_settings.homepage_listingtabs_column}}
+	                }
+	            },
+				{
+					"breakpoint": 991,
+					"settings": {
+						"slidesToScroll": 1,
+						"slidesToShow": 2
+					}
+				},
+				{
+					"breakpoint": 440,
+					"settings": {
+						"slidesToScroll": 1,
+						"slidesToShow": 1
+						
+					}
+				},
+				{
+					"breakpoint": 0,
+					"settings": {
+						"slidesToScroll": 1,
+						"slidesToShow": 1,
+						"arrows": false
+					}
+				}
+	        ]
+	    }'
+	
+	>
+		
+	 
+			
+			{{#forEach (limit category.products theme_settings.homepage_listingtabs_count)}}
+				{{#ifOdd index}}
+				<div class="productCarousel-slide product-layout product-grid">
+				{{/ifOdd}}
+					{{> components/sbthemes/products/card_listing
+						show_rating=../theme_settings.show_product_rating
+						alternate=../alternate
+						theme_settings=../theme_settings customer=../customer}}
+						
+				{{#ifEven index}}
+				</div>
+				{{/ifEven}}
+
+			{{/forEach}}
+	
+	
+	</section>
+</div>
+

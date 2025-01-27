@@ -1,0 +1,119 @@
+{{#partial "head"}}
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>  
+{{/partial}}
+
+{{#partial "page"}}
+     
+{{!-- {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}} --}}
+
+<main class="page page--information parent-container-{{lowercase (dashcase page.title)}}">
+    {{#if page.title '==' 'Fireworks Laws by State'}}
+        {{{ region name="fireworks-laws-by-state"}}}
+    {{/if}}
+    {{#if page.title '==' 'Locations'}}
+        {{{ region name="location-banner"}}}
+        
+        {{{ region name="location-1-after-banner"}}}
+
+        {{{ region name="location-2-after-banner"}}}
+        
+        {{{ region name="location-3-after-banner"}}}
+    {{/if}}
+    {{#if page.title '==' 'Howell Location'}}
+        {{{ region name="howell-banner-top" }}}
+        {{{ region name="howell-banner" }}}
+        {{{ region name="howell-blurb" }}}
+    {{/if}}
+    {{#if page.title '==' 'Cadillac Location'}}
+        {{{ region name="cadillac-banner-top" }}}
+        {{{ region name="cadillac-banner" }}}
+        {{{ region name="cadillac-blurb" }}}
+    {{/if}}
+    
+    {{#if page.title '==' 'Traverse City Mi'}} 
+        {{{ region name="traverse-banner-top" }}}
+        {{{ region name="traverse-banner" }}}
+        {{{ region name="traverse-blurb" }}}
+    {{/if}}
+    {{#or (if page.title '==' 'Locations') (if page.title '==' 'Policies')}}
+    {{else}}
+    {{#if page.sub_pages}}
+    <nav class="navBar navBar--sub">
+        <ul class="navBar-section account-navigation">
+        {{#each page.sub_pages}}
+            <li class="navBar-item"><a class="navBar-action" href="{{url}}">{{title}}</a></li>
+        {{/each}}
+        </ul>
+    </nav>
+    {{/if}}
+    {{/or}}
+    
+    {{#if (lowercase page.title) '==' 'policies'}}
+        {{{region name="policies-header"}}}
+        {{{region name="policies-content-1"}}}
+    {{/if}}
+    <div class="page-content ">
+        {{#replace '%%Syndicate%%' page.content}}
+            {{> components/page/rss_feed}}
+        {{else}}
+            {{{page.content}}}
+        {{/replace}}
+    </div>
+
+    {{#if page.feed}}
+        <ul>
+            {{#each page.feed}}
+                <li>
+                    <h6><a href="{{url}}" target="_blank">{{title}}</a></h6>
+                    <p>{{content}}</p>
+                </li>
+            {{/each}}
+        </ul>
+    {{/if}}
+	<script type="text/javascript">// <![CDATA[
+        $(document).ready(function() {
+            $('.page--information').magnificPopup({
+			  delegate: '.popup-gallery',
+			  type: 'image',
+			  tLoading: 'Loading image #%curr%...',
+			  mainClass: 'mfp-img-mobile',
+			  gallery: {
+				enabled: true,
+				navigateByImgClick: true,
+				preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+			  },
+			  image: {
+				tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+				titleSrc: function(item) {
+				  return item.el.attr('title') ;
+				}
+			  }
+			});
+        });
+// ]]></script>
+
+
+</main>
+
+{{/partial}}
+
+{{> layout/base}}
+
+{{#if page.title '==' 'Locations'}}
+    <style>
+        .main-body .container{
+            padding:0;
+            max-width:100% !important;
+        }
+        [data-sub-layout="f855c823-6094-48ba-9c93-8837c75ab528"]{
+            padding-left:0;
+            padding-right:0;
+        }
+        [data-content-region="location-1-after-banner"],[data-content-region="location-2-after-banner"],[data-content-region="location-3-after-banner"]{
+            max-width:93%;
+            margin:0 auto;
+        }
+    </style>
+{{/if}}

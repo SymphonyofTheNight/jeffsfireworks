@@ -1,0 +1,61 @@
+<div id="menumobile--verticalCategories" class="navPages-container navPages-verticalCategories">
+	
+    <a href="#" class="navPages-action megamenuToogle-wrapper hidden-sm hidden-xs"
+        data-collapsible="mobile--verticalCategories"
+        data-collapsible-disabled-breakpoint="medium"
+        data-collapsible-disabled-state="open"
+        data-collapsible-enabled-state="open"
+		>
+			<svg class="icon-alignleft" width="24" height="24"><use xlink:href="#icon-alignleft"></use></svg>
+			<span class="title-mega">{{lang 'category.label'}} </span>
+			<svg class="icon-caret-circle" width="22" height="22"><use xlink:href="#icon-caret-circle-down"></use></svg>
+		</a>
+	
+    <div class="mobile-verticalCategories is-open" id="mobile--verticalCategories"  aria-hidden="true" tabindex="-1">
+		<span class="mobileMenu-close fa fa-times" ></span>
+		<div class="col-12 search-info-content"  aria-hidden="true" tabindex="-1" data-prevent-quick-search-close>
+					{{> components/sbthemes/common/quick-search}}
+		</div>
+        <ul class="navPages-list navPages-list--categories">
+            {{#each categories}}
+				{{> components/sbthemes/module/sb_megamobile/vertical/vertical-list
+					status = (lang (concat (concat 'sb_themes.sb_megamenu.vertical.menu_cat_'@index)'.status'))
+					type-menu= (lang (concat (concat 'sb_themes.sb_megamenu.vertical.menu_cat_'@index)'.type-menu'))
+					icon-awesome = (lang (concat (concat 'sb_themes.sb_megamenu.vertical.menu_cat_'@index)'.icon-awesome'))
+					icon-image = (lang (concat (concat 'sb_themes.sb_megamenu.vertical.menu_cat_'@index)'.icon-image'))
+					content_column = (lang (concat (concat 'sb_themes.sb_megamenu.vertical.menu_cat_'@index)'.content_column'))
+					banner_enable = (lang (concat (concat 'sb_themes.sb_megamenu.vertical.menu_cat_'@index)'.show_banner'))
+					banner_mode = (lang (concat (concat 'sb_themes.sb_megamenu.vertical.menu_cat_'@index)'.banner_mode'))
+					banner_url = (lang (concat (concat 'sb_themes.sb_megamenu.vertical.menu_cat_'@index)'.url'))
+					banner_image = (lang (concat (concat 'sb_themes.sb_megamenu.vertical.menu_cat_'@index)'.image'))
+					placeholder = (lang (concat (concat 'sb_themes.sb_megamenu.vertical.menu_cat_'@index)'.placeholderImage'))
+				}}
+            {{/each}}
+            
+            {{#each pages}}
+				{{#or (if name '==' 'Wholesale Inquiry') (if title '==' 'Locations') (if (lowercase name) '==' 'ask about this product') }} 
+				{{else}}
+				{{> components/sbthemes/module/sb_megamobile/vertical/vertical-list
+					status = (lang (concat (concat 'sb_themes.sb_megamenu.vertical.menu_cat_'@index)'.status'))
+					type-menu= (lang (concat (concat 'sb_themes.sb_megamenu.vertical.menu_cat_'@index)'.type-menu'))
+					icon-awesome = (lang (concat (concat 'sb_themes.sb_megamenu.vertical.menu_cat_'@index)'.icon-awesome'))
+					icon-image = (lang (concat (concat 'sb_themes.sb_megamenu.vertical.menu_cat_'@index)'.icon-image'))
+					content_column = (lang (concat (concat 'sb_themes.sb_megamenu.vertical.menu_cat_'@index)'.content_column'))
+					banner_enable = (lang (concat (concat 'sb_themes.sb_megamenu.vertical.menu_cat_'@index)'.show_banner'))
+					banner_mode = (lang (concat (concat 'sb_themes.sb_megamenu.vertical.menu_cat_'@index)'.banner_mode'))
+					banner_url = (lang (concat (concat 'sb_themes.sb_megamenu.vertical.menu_cat_'@index)'.url'))
+					banner_image = (lang (concat (concat 'sb_themes.sb_megamenu.vertical.menu_cat_'@index)'.image'))
+					placeholder = (lang (concat (concat 'sb_themes.sb_megamenu.vertical.menu_cat_'@index)'.placeholderImage'))
+				}}
+					{{/or}}
+			 {{/each}}
+        </ul>
+        <a class="navPages-action account" href="/login.php">
+        <i class="fa fa-user"></i> My Account
+        </a>
+    </div>
+</div>
+
+<a href="#" class="mobileMenu-toggle mobileMenu--vertical" data-mobile-menu-toggle="menumobile--verticalCategories" aria-controls="menumobile--verticalCategories">
+	<span class="mobileMenu-toggleIcon"> Vertical Categories</span>
+</a>

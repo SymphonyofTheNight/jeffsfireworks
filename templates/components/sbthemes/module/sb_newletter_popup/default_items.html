@@ -1,0 +1,51 @@
+
+<div id="sb-newletter-popup" class="hide">
+    <div class="popup-overlay"></div>
+    <div class="newsletter-popup-container">
+        <a href="#" class="modal-close-newletter" aria-label="{{lang 'common.close'}}" role="button" data-close-newsletter-popup>
+            <span aria-hidden="true">&#215;</span>
+        </a>
+        <div class="newsletter-content d-flex">
+			<div class="newsletter-popup--left col d-none d-sm-block">
+				{{#if image '!=' ' '}}
+					<img data-sizes="auto" class="img-fluid lazyload " src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="{{cdn image }}" alt="{{subscribe}}"/>
+				{{else}}
+					<img class="img-fluid" src="{{cdn placeholder}}" alt="{{subscribe}}"/>
+				{{/if}}
+			</div>
+			
+			<div class="newsletter-popup--right col">
+				<h2 class="newsletter-heading">{{subscribe}}</h2>
+				<p class="newsletter-sub-heading">{{subscribe_intro}}</p>
+				<div id="popupSubcribeForm">
+					
+					<form class="form " action="{{urls.subscribe.action}}" method="post" id="popupSubcribeFormSubmit">
+						<fieldset class="form-fieldset">
+							<input type="hidden" name="action" value="subscribe">
+							<input type="hidden" name="nl_first_name" value="bc">
+							<input type="hidden" name="check" value="1">
+							<div class="form-inline">
+								<div class="form-group">
+									<input class="form-input" id="nl_email" name="nl_email" type="email" placeholder="{{lang 'newsletter.email_placeholder'}}">
+								</div>
+								<input class="button button--action" type="submit" value="{{lang 'newsletter.subscribe_submit'}}">
+							</div>
+						</fieldset>
+					</form>
+					<label class="hidden-popup">
+						<input type="checkbox" value="1" name="hidden-popup">
+						<span class="inline">{{subscribe_showpopup}}</span>
+					</label>
+				</div>
+				<div class="footer-socials">
+					{{> components/common/social-links}}
+				</div>
+				 
+			</div>
+        </div>
+    </div>
+</div>
+
+
+
+	

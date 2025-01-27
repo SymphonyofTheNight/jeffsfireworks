@@ -1,0 +1,13 @@
+// =============================================================================
+// RESPONSIVE (CSS)
+// =============================================================================
+@include breakpoints(xxxs){
+
+    /*====== Home Page 3 - Can Remove =======*/
+    .home4--style{
+        div.extraslider--home3 .block-item-timer .countdown--box .time-item{width: 50%; padding: 0; margin: 0;}
+        div.extraslider--home3 .block-viewall a{margin: 5px 0;}
+        
+    }
+ 
+}

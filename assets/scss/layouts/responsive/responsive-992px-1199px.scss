@@ -1,0 +1,58 @@
+// =============================================================================
+// RESPONSIVE (CSS)
+// =============================================================================
+
+@include breakpoints(md){
+    html {font-size: 13px;}
+    .modal {min-height:630px;right: auto; overflow-y: scroll;}
+    .modal-body {overflow: visible;}
+    .form-prefixPostfix{display: block;}
+
+   /*================ HEADER GROUP - No Remove ===================*/
+   .navbar-phone{padding: 0; background: none;}
+   .verticalCategories .navPages-item > .navPages-action{ padding: 7px 0;}
+   .verticalCategories .loadmore{height: 45px;}
+   .section-slideshow .block-slideshow__left{height: 404px; overflow: hidden;}
+   .form-minMaxRow .form-field:last-child{width: 100%; margin: 10px 0;}
+   .navPages-horizontal ul.navPages-list > li.navPages-item .navPages-action{ padding: 0.78571rem 12px;}
+
+   /*====== Static Banner  - Can Remove =======*/
+    .sb-banner{ 
+        .flex-row{margin:0 -5px;
+            .banners{margin: 0 5px;}
+        }
+    }
+    .sb-banner--slideshow{
+        .img-fluid{max-height: 135px;}
+    }
+
+    /*====== Static Deals  - Can Remove =======*/
+    div.sb-deals{
+        .sb-deals-detail{ height: 340px;}
+        .sb-deals-items .sb-deals-image-thumb{margin: 5px;}
+    }
+    div.extraslider--home1 .products-list .product-list .product-item-container .left-block{margin-#{$right}: 5px;}
+    div.extraslider--home1 .productCarousel-slide{padding: 15px 0 15px;}
+    div.extraslider--home1 .sb-extraslider-image{ background: #f5f5f5;}
+    .sb-listing-tabs .ltabs-container .ltabs-items-container--image{ width: calc(100% - 195px);}
+    .sb-listing-tabs .ltabs-container .ltabs-items-image .banners{overflow: hidden;height: 521px;}
+    .sb-listing-tabs{
+      .product-item-container .img-responsive{max-height: 155px; margin: 0 auto;}
+    }
+    .footer-newsletter .input-group{width: 400px;}
+
+    .productView-options .form-action{margin-bottom: 10px;}
+    .default--style{
+		.header-center{
+			.col-lg-6,.navbar-container{padding:0;}
+		}
+	}
+    /*====== Home Page 2 =======*/
+    .home2--style{
+        .section-slideshow .slick-slider .heroCarousel-content{position: relative;  transform: translateY(-100%); width: 100%;}
+    }
+    .sb-supper-category .spcat-container .spcat-items-container{ 
+      border-right: 1px solid #e8e8e8;
+    }
+}
+

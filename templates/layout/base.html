@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html  lang="{{ locale_name }}">
+    <head>
+        <title>{{ head.title }}</title>
+        {{{ resourceHints }}}
+        {{{ head.meta_tags }}}
+        {{{ head.config }}}
+        {{#block "head"}} {{/block}}
+
+        <link href="{{ head.favicon }}" rel="shortcut icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+		{{#if theme_settings.general_rtl '==' 'ltr' }}
+			<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" >
+		{{else}}
+			<link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.0.0/css/bootstrap.min.css" rel="stylesheet">
+		{{/if}}
+
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+        {{{stylesheet '/assets/css/theme.css'}}}
+        {{#if template_file '==' 'pages/product'}}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+        {{{stylesheet '/assets/css/_product_custom.css'}}}
+        {{/if}}
+
+        {{ getFontsCollection }}
+        <script>
+            // Change document class from no-js to js so we can detect this in css
+            document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+        </script>
+
+        {{{head.scripts}}}
+        {{{head.rsslinks}}}
+
+        {{inject 'themeSettings' theme_settings}}
+        {{inject 'genericError' (lang 'common.generic_error')}}
+        {{inject 'maintenanceMode' settings.maintenance}}
+        {{inject 'urls' urls}}
+        {{{snippet 'htmlhead'}}}
+    </head>
+
+    <body class="banners-{{theme_settings.general_bannereffect}} {{theme_settings.theme_style}}--style">
+        {{{snippet 'header'}}}
+
+			{{> components/sbthemes/header/header2 logoPosition = theme_settings.logo-position stickyHeader = theme_settings.show_on_topheader typeheader = theme_settings.home_header}}
+
+
+        {{{snippet 'Main Body'}}}
+        {{> components/common/body }}
+
+        {{{snippet 'Footer'}}}
+       
+            {{> components/sbthemes/footer/footer2 typefooter = theme_settings.home_footer}}
+
+
+		<div id="previewModal" class="modal modal--large" data-reveal>
+            <a href="#" class="modal-close" aria-label="Close" role="button">
+                <span aria-hidden="true">&#215;</span>
+            </a>
+           <div class="modal-content"></div>
+			<div class="loadingOverlay"></div>
+        </div>
+
+        <div class="icons-svg-sprite">{{> components/common/icons/icon-defs }}</div>
+        {{#if settings.privacy_cookie}}
+            {{> components/common/cookie}}
+        {{/if}}
+
+        <script>window.__webpack_public_path__ = "{{cdn 'assets/dist/'}}";</script>
+        <script src="{{cdn 'assets/dist/theme-bundle.main.js'}}"></script>
+
+        <script>
+            // Exported in app.js
+            window.stencilBootstrap("{{page_type}}", {{jsContext}}).load();
+        </script>
+
+		<!-- Newsletter Popup -->
+        {{#if theme_settings.homepage_newletterpopup}}
+            {{> components/sbthemes/module/sb_newletter_popup/default}}
+            <script>
+                window.SBNewsletterPopup(1, true);
+            </script>
+        {{else}}
+            <script>
+                window.SBNewsletterPopup(1, false);
+            </script>
+        {{/if}}
+
+        {{{footer.scripts}}}
+        {{{snippet 'footer'}}}
+    </body>
+</html>

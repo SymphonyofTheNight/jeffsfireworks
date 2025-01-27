@@ -1,0 +1,100 @@
+{{!--
+Arguments:
+    - category_id (number)
+    - viewAll (string): CSS class styling suffix
+    - banner
+    - placeholder
+    - statusBanner
+	- limit_subcategory
+
+Global variables:
+    - categories (array)
+
+--}}
+{{#each categories}}
+	{{#if id '===' ../category_id}}
+		{{#if (merge ../../this 
+			category_name = name
+			category_url = url)}}
+		{{/if}}
+	{{else}}
+		{{#each children}}
+			{{#if id '===' ../../../category_id}}
+				{{#if (merge ../../../../this
+					category_name = name
+					category_url = url)}}
+				{{/if}}
+			{{/if}}
+		{{/each}}
+	{{/if}}
+{{/each}}
+
+
+<div class="sb-supper-category">
+	
+	{{#if category_url}}
+		<div class="spcat-container d-flex no-gutters ">
+			<div class="spcat-items--category col-xl-2 col-md-3 col-12">
+				<div class="spcat-heading d-flex">
+					<h3 class="block-title"><a href="{{category_url}}" title="{{category_name}}">{{category_name}}</a></h3>
+				</div>
+				<ul class="blank spcat--category--all">
+					{{#each categories}}
+						
+						{{#if id '===' ../category_id}}
+							{{#each (limit children ../../../limit_subcategory) }}
+								<li><a href="{{url}}">{{name}}</a></li>
+							{{/each}}
+						{{else}}
+							{{#each children}}
+								{{#if id '===' ../../../category_id}}
+								{{#each (limit children ../../../limit_subcategory) }}
+								<li><a href="{{url}}">{{name}}</a></li>
+								{{/each}}
+								{{/if}}
+							{{/each}}
+						{{/if}}
+					{{/each}}
+					<li class="view-all"><a href="{{category_url}}"><i class="fa fa-caret-right"></i> {{../viewAll}}</a></li>
+				</ul>
+			</div>
+			<div class="spcat-items-container col-xl-10 col-md-9 col-12">
+				{{#if ../../statusBanner}}
+				<div class="spcat-items--image">
+					<div class="banners" {{#if theme_settings.general_fadeimage}}data-fade-image data-size-image{{/if}}>
+						<div class="banner-figure">
+						
+							{{#if ../banner '!=' ' '}}
+								<a href="{{../category_url}}" title="{{../category_name}}"><img class="img-fluid" src="{{cdn ../banner}}" alt="{{../name}}" /></a>
+							{{else}}
+								<a href="{{../category_url}}" title="{{../category_name}}"><img class="img-fluid" src="{{cdn ../placeholder}}" alt="{{../name}}"  /></a>
+							{{/if}}
+						</div>
+					</div>
+				</div>
+				{{/if}}
+				
+				<div class="spcat-items-content" 
+					data-products-by-category-tabs="{{concat category_url '?sort=newest'}}" 
+					data-urltemplate="sbthemes/module/sb_supper_category/default/default_items">
+					<div class="productLoading" >
+						<img class="img-responsive lazyload" src="{{cdn '/assets/img/loading.svg'}}" alt="loading" width="50" height="50" >
+					</div>
+					
+				</div>
+			</div>
+			
+		</div>
+	{{else}}
+		<div class="alert alert-info" role="alert"  style="margin:0 0 30px">
+			<i class="fa fa-info-circle"></i> 
+		   {{{lang 'sb_themes.sb_supper_category.noCategory' }}}
+		</div>
+	
+	{{/if}}
+	
+</div>
+
+
+
+

@@ -1,0 +1,46 @@
+---
+products:
+    new:
+        limit: {{theme_settings.homepage_new_products_count}}
+    featured:
+        limit: {{theme_settings.homepage_featured_products_count}}
+    top_sellers:
+        limit: {{theme_settings.homepage_top_products_count}}
+carousel: {{theme_settings.homepage_show_carousel}}
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+---
+{{{snippet 'SlideShow'}}}
+{{#partial "hero"}}
+
+		{{> components/sbthemes/sections/slideshow-home2}}
+
+{{/partial}}
+
+{{#partial "page"}}
+	{{#each shipping_messages}}
+			{{> components/common/alert-info message}}
+	{{/each}}
+
+	<div class="main-full ">
+
+
+			{{> components/sbthemes/home/home2}}
+
+
+		{{#if banners.bottom}}
+			<div class="banners--bottom" data-banner-location="bottom">
+				<div class="container">
+					<div class="row">{{{limit banners.bottom 1}}}</div>
+				</div>
+			</div>
+		{{/if}}
+	</div>
+{{/partial}}
+<script>
+	function imgError(){
+		console.log("err log");
+	}
+</script>
+{{> layout/base}}

@@ -1,0 +1,181 @@
+---
+products:
+    new:
+        limit: {{theme_settings.homepage_new_products_count}}
+    featured:
+        limit: {{theme_settings.homepage_featured_products_count}}
+    top_sellers:
+        limit: {{theme_settings.homepage_top_products_count}}
+category:
+    shop_by_price: true
+    products:
+        new:
+            limit: {{theme_settings.categorypage_products_per_page}}
+        limit: {{theme_settings.categorypage_products_per_page}}
+---
+
+{{inject "currentPage" category.url}}
+
+{{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
+{{inject "settings_subcategory_col" theme_settings.settings_subcategory_col}}
+{{inject "text_refine_more" (lang 'sb_themes.sub_categories.text_refine_more' )}}
+{{inject "text_refine_less" (lang 'sb_themes.sub_categories.text_refine_less' )}}
+
+{{#partial "head"}}
+    {{#if pagination.category.previous}}
+        <link rel="prev" href="{{pagination.category.previous}}">
+    {{/if}}
+    {{#if pagination.category.next}}
+        <link rel="next" href="{{pagination.category.next}}">
+    {{/if}}
+{{/partial}}
+
+{{#partial "page"}}
+
+{{!-- {{> components/common/breadcrumbs breadcrumbs=breadcrumbs active_url=category.url}} --}}
+
+<div class="row page">
+    
+    <aside class="col-sm-3 page-sidebar sidebar-offcanvas" id="faceted-search-container">
+        {{> components/category/sidebar }}
+    </aside>
+    
+    <main class="col-lg-9 col-md-12 page-content" id="product-listing-container">
+        <div class="products-category clearfix">
+            {{#if category.name}}
+            <div class="form-group category-info">
+                <h3 class="title-category ">{{category.name}}</h3>
+
+                <div class="container-child-category">
+                {{#if category.image}}
+                <div class="category-info__image">
+                    <div class="banners">
+                        <div class="banner-figure">
+                            <a href="{{url}}"><img src="{{getImage category.image}}"></a>
+                        </div>
+                            
+                    </div>
+                </div>
+                {{/if}}
+                
+                {{#if category.description}}
+                <div class="category-info__desc">
+                    {{{category.description}}}
+                </div>
+                {{/if}}
+                </div>
+                
+                
+                {{{snippet 'categories'}}}
+            </div>
+            {{/if}}
+            
+            {{#all category.subcategories theme_settings.settings_subcategory}}
+            <div class="refine-search form-group clearfix">
+                <div class="refine-search__content blank row">
+                {{#each category.subcategories}}
+                <div class="refine-search__subitem col-lg-2 col-md-2 col-6">
+                        <a href="{{url}}" class="thumbnail"><img class="img-thumbnail" src="{{getImage image 'category_card_size' (cdn ../theme_settings.default_image_product)}}" alt="{{name}}" /></a>
+                        <div class="refine-search__subitem-body">
+                            <h4 class="refine-search__subitem-name">
+                                <a href="{{url}}">{{name}}</a>
+                            </h4>
+                            
+                        </div>
+                </div>
+                {{/each}}
+                </div>
+            </div>
+            {{/all}}
+
+                
+            {{#if category.products}}
+                {{> components/category/product-listing}}
+            {{else}}
+                {{#unless category.subcategories}}
+                    <p>{{lang 'categories.no_products'}}</p>
+                {{/unless}}
+            {{/if}}
+        </div>
+        {{{region name="category_block1"}}} 
+    </main>
+	
+	
+</div>
+
+{{/partial}}
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) { 
+      const banner = document.querySelector('.module.sb-banner.sb-banner--sidebarBanner');
+      banner.remove();
+      
+      
+    localStorage.setItem("listview", 'grid-3');
+    });
+</script>
+<style>
+    .products-list .product-layout .product-item-container .left-block .lazyloaded{
+        max-height:141px;
+    }
+   .quickview.btn-button i.fa-search{
+        position:relative;
+        top:-5px;
+        left:-6px;
+   }
+   .refine-search__subitem img.img-thumbnail{
+       width:100%;
+   }
+   .navList-subMenu-item .navList-action::before{
+       display:none;
+   }
+   ul.navList-subMenu-list{
+       margin-left:0 !important;
+   }
+   .navList-subMenu-list .navList-subMenu-item{
+       border-bottom:1px solid #DFDFDF;
+   }
+   h3.title-category{
+       font-size:20px;
+       font-family:"Open Sans",Sans-Serif;
+       color:#111111;
+   }
+   .sidebar--categories{
+       margin-top:32px;
+   }
+   [spacer]{
+       margin-top:32px;
+   }
+   .card-brand {
+       color: #AAAAAA;
+       font-size: 10px;
+       display: block!important;
+   }
+   .products-list .product-grid .product-item-container .right-block .button-group {
+    bottom: -25px!important;
+}
+   @media(max-width:550px){
+       article.product-item-container .right-block .button-group{
+            inset:0 !important;
+            position:relative !important;
+            display:block;
+            margin-top:10px;
+            }
+            
+            article.product-item-container .right-block .button-group .action-item{
+            inset:0 !important;
+            position:relative !important;
+            display:block;
+            }
+            article.product-item-container{
+            padding-bottom:30px !important;
+            }
+        }
+   @media(max-width:515px){
+       ul.pagination-list{
+           display:flex;
+           flex-wrap:wrap;
+           row-gap:10px;
+       }
+   }
+</style>
+{{> layout/base}}

@@ -1,0 +1,333 @@
+{{!--
+Arguments:Module sb_menu
+    - prefix (string): section instance index number
+    - limitation  (number): The number of menu item to display.
+    - icon-fontawesome(string): show icon fontawesome on  heading menu. Ex (icon-fontawesome=gift)
+    - class_sfx (string) : Class suffix for module. 
+    - horizontal : this menus items show horizontal
+    
+Arguments:Module sb_banner
+    - prefix (string): section instance index number
+    - limitation  (number): The number of menu item to display.
+    - class_sfx (string) : Class suffix for module. 
+    - display_mode : this Banner items show horizontal
+--}}
+{{#if template_file '==' 'pages/product'}}
+<style> 
+        .container-top-footer{
+                display:flex;
+                flex-wrap:wrap;
+                width:100%;
+                padding:30px;
+                border:1px solid #cccccc;
+                border-radius:6px;
+                width:90%;
+                margin:0 auto;
+        }
+        .col-top-footer{width:calc(100% / 4 - 3px);display:flex;align-items:center;justify-content: center;}
+        .col-top-footer:not(:last-child){
+                border-right:1px solid #cccccc;
+        }
+        .col-top-footer .blurb-top-footer{display:flex;flex-direction:column;align-items: start;justify-content: center;margin-left:10px;}
+        .blurb-top-footer span{
+              font-family:"Open Sans",sans-serif;
+              margin-bottom:2px;
+              height:16px;
+        }
+        .blurb-top-footer span.tspan-footer{
+                font-size:14px;
+                font-weight:bolder;
+                color:#383E49;
+        }
+        .blurb-top-footer span.bspan-footer{
+                font-size:12px;
+                color:#888888;
+
+        }
+            @media(max-width:800px){
+                .col-top-footer{
+                        width:calc(100% / 2 - 3px);
+                        border:0 !important;
+                        margin-bottom:20px;
+                }
+        }
+        @media(max-width:450px){
+           .container-top-footer{
+                padding:15px;
+           }
+        }
+</style>
+<div class="container-top-footer">
+        <div class="col-top-footer">
+                <img src="https://cdn11.bigcommerce.com/s-bx5lgignkk/images/stencil/original/image-manager/calendarz.png" alt="">
+                <div class="blurb-top-footer">
+                        <span class="tspan-footer">
+                                Open Year Round
+                        </span>
+                        <span class="bspan-footer">
+                                We've Got the Good Stuff!
+                        </span>
+                </div>
+        </div>
+        <div class="col-top-footer">
+                <img src="https://cdn11.bigcommerce.com/s-bx5lgignkk/images/stencil/original/image-manager/history-fill0-wght400-grad0-opsz48.png" alt="">
+                <div class="blurb-top-footer">
+                        <span class="tspan-footer">
+                                Open Year Round
+                        </span>
+                        <span class="bspan-footer">
+                                We've Got the Good Stuff!
+                        </span>
+                </div>
+        </div>
+        <div class="col-top-footer">
+                <img src="https://cdn11.bigcommerce.com/s-bx5lgignkk/images/stencil/original/image-manager/medalz.png" alt="">
+                <div class="blurb-top-footer">
+                        <span class="tspan-footer">
+                                Open Year Round
+                        </span>
+                        <span class="bspan-footer">
+                                We've Got the Good Stuff!
+                        </span>
+                </div>
+        </div>
+        <div class="col-top-footer">
+                <img src="https://cdn11.bigcommerce.com/s-bx5lgignkk/images/stencil/original/image-manager/storez.png" alt="">
+                <div class="blurb-top-footer">
+                        <span class="tspan-footer">
+                                Open Year Round
+                        </span>
+                        <span class="bspan-footer">
+                                We've Got the Good Stuff!
+                        </span>
+                </div>
+        </div>
+</div>
+{{/if}}
+<footer class="footer " role="contentinfo"> 
+    {{!-- FOOTER TOP --}}
+    <section class="footer-top">
+        <div class="container">
+			<div class="row">
+				<div class="footer-newsletter d-flex  align-items-center col-xl-12 col-lg-12  col-sm-12 ">
+					{{#if settings.show_newsletter_box}}
+						{{> components/sbthemes/common/subscription-form}}
+					{{/if}}
+				</div>
+			</div>
+        </div>
+    </section>
+
+    {{!-- FOOTER CENTER --}}
+    <section class="footer-center ">
+        <div class="footer-center__first">
+            <div class="container">
+                <div class="row">
+                    
+                   <article class="col collapsed-block" data-section-type="footer-webPages">
+                        <h5 class="footer-info-heading">
+                            Jeff's Info
+                            <span class="expander" ><i class="fa fa-chevron-circle-down"></i></span>
+                        </h5>
+                        <ul class="footer-info-list">
+                           
+                                <li><a href="">Jeff's Info</a></li>
+                                <li><a href="/categories">Fireworks Categories</a></li>
+                                <li><a href="/locations">Locations</a></li>
+                                <li><a href="/events-shows">Events & Shows</a></li>
+                                <li><a href="/blogs/news">Jeff's News</a></li>
+                                <li><a href="/policies">Policies</a></li>
+                                <li><a href="/contact-us">Contact Us</a> </li>
+                               
+                            
+                        </ul>
+                    </article>
+                    
+                    
+                    <article class="col collapsed-block" data-section-type="footer-webPages">
+                        <h5 class="footer-info-heading">
+                            Resources
+                            <span class="expander" ><i class="fa fa-chevron-circle-down"></i></span>
+                        </h5>
+                        <ul class="footer-info-list">
+                           
+                                <li><a href="">FAQ'S</a> </li>
+                                <li><a href="/safety">Fireworks Safety</a> </li>
+                                <li><a href="/firework-types-and-definitions">Types & Definitions</a> </li>
+                                <li><a href="/pyrotechnic-terms">Pyrotechnic Terms</a> </li>
+                                <li><a href="/fireworks-laws-by-state">State Laws</a> </li> 
+                                <li><a href="https://www.nationalfireworks.com">NFA</a></li>
+                                <li><a href="https://www.pgi.org/">PGI</a></li>
+                    
+                           
+                        </ul>
+                    </article>
+                    
+                    <article class="col collapsed-block" data-section-type="footer-webPages">
+                        <h5 class="footer-info-heading">
+                            Discounts
+                            <span class="expander" ><i class="fa fa-chevron-circle-down"></i></span>
+                        </h5>
+                        <ul class="footer-info-list">
+                           
+                                <li><a href="/wholesale-inquiry/">Wholesale Inquire</a> </li>
+                                <!--<li><a href="">Wholesale Pricing</a> </li>-->
+                                <!--<li><a href="">Specials</a> </li>-->
+                                <li><a href="">Military Discount</a> </li>
+                                <li><a href="/categories?sort=newest">New Products</a> </li>
+                
+                    
+                           
+                        </ul>
+                    </article>
+                    
+                    
+                    {{#and theme_settings.shop_by_brand_show_footer shop_by_brand.length}}
+                    <article class="col collapsed-block" data-section-type="footer-brands">
+						<h5 class="footer-info-heading">
+                           {{lang 'footer.brands'}}
+                            <span class="expander" ><i class="fa fa-chevron-circle-down"></i></span>
+                        </h5>
+                        <ul class="footer-info-list">
+                            {{#each (limit shop_by_brand 5)}}
+                                <li>
+                                    <a href="{{url}}">{{name}}</a>
+                                </li>
+                            {{/each}}
+                            <li><a href="{{urls.brands}}"><strong>{{lang 'common.view_all'}}</strong></a></li>
+                        </ul>
+                    </article>
+                    {{/and}}
+
+                    
+                    
+
+                    
+                    <article class="col-lg-4 col-sm-12 footer-info collapsed-block" data-section-type="storeInfo">
+                        <h5 class="footer-info-heading">
+                            {{lang 'footer.info'}}
+                            <span class="expander" ><i class="fa fa-chevron-circle-down"></i></span>
+                        </h5>
+                        <div class="footer-info-list">
+                        
+                        
+                        {{#if settings.phone_number}}
+                            <address><i class="fa fa-mobile"></i> <strong>Call or Text</strong> <a href="tel:734-550-9779" style="color:#666;">734-550-9779</a></address>
+                        {{/if}}
+                        <address><i class="fa-solid fa-clock-o"></i>7 DAYS A WEEK - 9:00 AM- 8:00 PM / EST</address>
+                        </div>
+                        
+                        <div class="footer-socials d-flex flex-row">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                            <i class="fa fa-youtube" aria-hidden="true"></i>
+                        </div>
+						{{#if theme_settings.show_footer_info_2}}
+							{{> components/sbthemes/module/sb_banner/banner status=true prefix="downloadApp" showContent=false display_mode="horizontal" limitation=3 class_sfx=""}}
+						{{/if}}
+                    </article>
+					
+					
+                    {{#if theme_settings.show_footer_info_3}}
+                    <article class="custom_categories col-xs-12 ">
+                        <nav class="navPages-horizontal">
+   
+                        <ul class="navPages-list">
+                            <li class="navPages-item navPages-item-page">
+                                <a class="navPages-action" href="/">Shipping Policy</a>
+                            </li>
+                            <li class="navPages-item navPages-item-page">
+                                <a class="navPages-action" href="/">Refund Policy</a>
+                            </li>
+                            <li class="navPages-item navPages-item-page">
+                                <a class="navPages-action" href="/">Terms of Service</a>
+                            </li>
+                            <li class="navPages-item navPages-item-page">
+                                <a class="navPages-action" href="/">Privacy Policy</a>
+                            </li>
+                            
+                         
+                        </ul>
+                        
+                    </nav>
+
+                        <p>{{{lang 'sb_themes.footer.message' }}}</p>
+                    </article>
+                    {{/if}}
+                    
+                </div>
+            </div>
+        </div>
+       
+       
+    </section>
+    
+ <!--   {{!-- FOOTER BOTTOM --}}
+    <section class="footer-bottom">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="footer-copyright col-sm-12">
+					{{#if theme_settings.show_copyright_footer}}
+					<span class="powered-by">&copy; {{moment format="YYYY"}} {{settings.store_name}} </span>
+					{{/if}}
+					{{#if theme_settings.show_powered_by}}
+						<span class="powered-by">Powered by <a href="https://www.bigcommerce.com/" rel="nofollow">BigCommerce</a>. Designed by <a href="http://www.revotheme.com/" target="_blank">Revotheme.com</a></span>
+					{{/if}}
+                </div>
+			
+                <div class="col-sm-12 ">
+                    {{> components/common/payment-icons}}
+                </div>
+
+                {{#if theme_settings.geotrust_ssl_common_name}}
+                    <div class="footer-geotrust-ssl-seal">
+                        {{> components/common/geotrust-ssl-seal}}
+                    </div>
+                {{/if}}
+
+            </div>
+        </div>
+    </section>
+-->
+    
+    {{#if theme_settings.general_backtotop}}
+    <section class="sb-backtotop">
+        <div class="container">
+            <div class="back-fixed-panel">
+                <div class="back-panel-shares" data-role="sharesArea" >
+                {{> components/sbthemes/common/social-links}}
+                </div>
+                <div class="back-panel-operation">
+                    {{#if social_media}}
+                    <div class="back-panel-unit back-panel-toggle" >
+                    </div>
+                    {{/if}}
+                    <div class="back-panel-unit back-totop"><i class="fa fa-angle-up"></i></div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    {{/if}}
+    
+    {{#if theme_settings.fbMessage_status}}
+    <section class="sb-message">
+       {{> components/sbthemes/module/sb_facebook_message/default status=true}}
+    </section>
+    {{/if}}
+    
+    
+</footer>
+<script>
+
+document.addEventListener("DOMContentLoaded", function(event) { 
+ setTimeout(function(){
+     const x = document.querySelectorAll('.custom-toggle');
+     x.forEach((e)=>{
+         e.classList.add('is-open');
+     });
+ },1000);
+});
+    
+</script>

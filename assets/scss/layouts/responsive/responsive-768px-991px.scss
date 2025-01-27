@@ -1,0 +1,72 @@
+// =============================================================================
+// RESPONSIVE (CSS)
+// =============================================================================
+@include breakpoints(sm){
+    .modal {min-height:550px;right: auto; overflow-y: scroll;}
+    .modal-body {overflow: visible;}
+    .previewCartCheckout {width: 50%;float: right;}
+    .previewCart .productView{width: 50%; float: left;}
+    .form-prefixPostfix{display: block;}
+    
+    /*================ HEADER GROUP ===================*/
+    .dropdown--quickSearch.is-open{   width: 100% !important;}
+    .quickSearchResults .modal-close {display: block;}
+
+    .custom_categories ul.navPages-list{ list-style: none;
+        .navPages-item{ display: inline-block; padding: 0 10px; }
+    }
+    /*================ Page Category Product - Can Remove ===================*/
+    .productView-options .form-action{width: 100%; margin-bottom: 5px; padding: 0;}
+
+    /*================ HOME PAGE GROUP - No Remove ===================*/
+    .navbar-phone{margin-top:0px; float: $right;}
+
+    .section-slideshow .block-slideshow__left{ max-width: 100%;}
+    .section-slideshow .block-slideshow__right{ max-width: 100%;     flex: 0 0 100%; padding: 0;}
+    .sb-banner--slideshow .block-content{display: flex;}
+
+    div.sb-banner.sb-banner--feature_category{ 
+        .block-content{overflow-x: scroll;}
+        .banners{flex: 0 0 25%;}
+    }
+
+    div.sb-deals{width: 100%;}
+    .extraslider--bestsell{width: 100%;}
+    .sb-listing-tabs{
+        .ltabs-heading ul.tabs .tab-title{  padding: 8px 0.5rem 5px;}
+        .product-item-container .img-responsive{max-height: 164px; margin: 0 auto;}
+    }
+    .extraslider--new{width: 100%; clear: both;}
+    .extraslider--featured{width: 100%;clear: both;}
+    div.sb-banner--services {
+        .block-content{  overflow-x: scroll;}
+        .banners{flex: 0 0 29%;}
+    }
+    .footer-center {
+       .collapsed-block {    flex: 0 0 100%;max-width: 100%;}
+    }
+
+    .footer-info-list{margin-bottom: 30px;}
+    .footer-info{width: 100%;}
+    .footer-socials{    justify-content: center!important; margin-top: 15px;}
+    .custom_categories{border-top: none; margin-top: 0;}
+    .tab {
+        float: $left; 
+    }
+
+    /*====== Home Page 2 - Can Remove =======*/
+    .home2--style{
+        .section-slideshow .slick-slider .heroCarousel-content{position: relative;  transform: translateY(-60%); width: 100%;}
+    }
+  
+    .sb-supper-category .spcat-container .spcat-items-container{ 
+      border-right: 1px solid #e8e8e8;
+    }
+
+    /*====== Home Page 3 - Can Remove =======*/
+    div.sb-banner--home3FeatureCat { 
+        .block-content{overflow-x: scroll;}
+        .banners{flex: 0 0 30%;}
+    }
+    
+}

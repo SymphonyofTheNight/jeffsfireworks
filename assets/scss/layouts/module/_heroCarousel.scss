@@ -1,0 +1,97 @@
+
+//====== SB SlideShow  =======
+.section-slideshow{background:#f2f2f2; margin-bottom: 30px; 
+        
+       
+            .block-slideshow{
+               @include breakpoint("medium") {padding-#{$left}: 0;}
+               padding-left: 15px;
+            }
+            .block-slideshow__left{
+                padding: 0;
+                max-width: 71%;
+                flex: 0 0 71%;
+            }
+            .block-slideshow__right{
+                @include breakpoint("medium") {padding-#{$left}: 0px;}
+                padding-left: 15px;
+                max-width: 29%;
+                flex: 0 0 29%;
+            }
+        
+        .heroCarousel {
+            overflow: hidden;
+            max-height: 0;
+           
+            &.slick-initialized{
+                max-height: 100%;
+                
+            }
+           
+        }
+
+        .slick-slider{ margin: 0;
+            ul.slick-dots{  bottom: 25px; width: 100%;  line-height: 100%; #{$left}: 25px; #{$right}: auto; 
+                li{ display: inline-block; float: $left; padding: 0 1px; width:auto; height: auto;background:none;
+                    button{ width: 8px; height:8px; background-color: #7d7d7d; border:none; margin:0 2px; opacity: 1; 
+                        display: block;border-radius: 50%; -webkit-border-radius: 50%; @include transition(all .2s ease 0s);
+                        &:before{display:none;}
+                    }
+                    &.slick-active button{ background-color: $background; width: 25px; border-radius: 4px; }
+                    &:hover button{background-color: $background;}
+                }
+            }
+            .heroCarousel-slide{
+                &.slick-active{
+                    .heroCarousel-content{
+                        .heroCarousel-title{
+                            opacity: 1;
+                            animation: myeffect-slideshow 2s ease-in-out ;
+                        }
+                        h3.description-tilte{
+                            opacity: 1;
+                            animation: myeffect-slideshow 1.5s ease-in-out ;
+                        }
+                        .heroCarousel-action{
+                            opacity: 1;
+                            animation: myeffect-slideshow 1s ease-in-out ;
+                        }
+                    }
+                }
+            }
+            .heroCarousel-content{
+                transform: none;text-align: $left; background: none;  top: 25%;    position: absolute; z-index: 5;
+                .heroCarousel-title{
+                  
+                    width: auto;
+                    opacity: 0;
+                    top: 31%;
+                    font-size: 20px; 
+                    color: #3b3b3b;
+                    text-transform: uppercase;
+                    left: 30px;
+                   
+                }
+                .heroCarousel-description{
+                    width: 65%;
+                    text-transform: uppercase;
+                    color: #fff;
+
+                }
+                h3.description-tilte{ 
+                    opacity: 0;
+                    font-size: 34px; color: white; font-weight: 700; margin: 0 0 15px;  letter-spacing: 2px; 
+                }
+                .heroCarousel-action{
+                     opacity: 0;
+                    margin-top: 15px;
+                    font-size: 14px;
+                    text-transform: none;
+                    margin-top: 15px;
+                    display: block;
+                }
+            }
+        }
+        
+    
+}

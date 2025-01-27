@@ -1,0 +1,69 @@
+<nav>
+	<span id="close-sidebar" class=" fa fa-times" ></span>
+	
+    {{#if categories}}
+        {{> components/sbthemes/module/category }}
+    {{/if}}
+    	{{> components/sbthemes/module/sb_extraslider/default products=products.top_sellers moduleId=3 row=4 columns=1 banner="no" class_sfx="sidebar--bestsell" }}
+    	{{> components/sbthemes/module/sb_banner/banner status=true prefix="cmsblock" showContent=true limitation=1 display_mode="" class_sfx=""}}
+   
+    {{#if category.faceted_search_enabled}}
+        {{> components/faceted-search/index category}}
+    {{else}}
+        {{> components/sbthemes/category/shop-by-price shop_by_price=category.shop_by_price category_url=category.url}}
+    {{/if}}
+
+
+	
+
+    
+    {{#if template_file '==' 'pages/product'}}
+    {{else}}
+	    {{> components/sbthemes/module/sb_banner/banner status=true prefix="sidebarBanner" showContent=false limitation=1 display_mode="" class_sfx=""}}
+	{{/if}}
+    
+</nav>
+<style>
+
+    .sb-banner--cmsblock .block-content{
+        padding:0 !important;
+    }
+    .sb-banner img.img-fluid{
+        width:100%;
+    }
+    ul.custom-toggle li:last-child{
+        border-bottom:0;
+    }
+    .sidebar--categories h5.block-title{
+        text-align: center;
+        font-size:20px;
+        background-color:#1349B2 !important;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        color:white !important;
+        padding-left:0 !important;
+    }
+    .module.sidebar--categories ul li a{
+        font-size:14px;
+        font-family:"Open Sans",Sans-Serif;
+        padding-left:16px !important;
+    }
+    .aoc_sbp h5.block-title{
+        text-align: center;
+        font-size:20px;
+        background-color:#DFDFDF !important;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        color:#222222 !important;
+        padding-left:0 !important;
+    }
+    .aoc_sbp ul li a{
+        font-size:14px;
+        font-family:"Open Sans",Sans-Serif;
+        padding-left:16px !important;
+    }
+    .aoc_sbp .block-content.clearfix{
+        padding-left:0;
+        padding-right:0;
+    }
+</style>
